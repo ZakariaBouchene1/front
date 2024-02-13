@@ -1,0 +1,27 @@
+  // The UserService is a service class responsible 
+  // for handling user-related operations. isValidUser
+   // and getUserProfile methods would need to be 
+   // implemented based on your application's logic.
+
+
+@RestController
+@RequestMapping("/api")
+public class AuthController {
+
+  @Autowired
+  private UserService userService;
+
+  @PostMapping("/login")
+  public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+    // Check if the provided username and password match a user in the database
+    // You should perform proper authentication, hashing, and validation in a real-world scenario
+    if (userService.isValidUser(loginRequest.getUsername(), loginRequest.getPassword())) {
+      // If authentication is successful, fetch user profile data
+      UserProfile userProfile = userService.getUserProfile(loginRequest.getUsername());
+      return ResponseEntity.ok(userProfile);
+    } else {
+      // If authentication fails, return an error response
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+    }
+  }
+}

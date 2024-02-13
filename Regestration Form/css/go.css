@@ -1,0 +1,195 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primaryLColor: hsl(204, 100%, 83%);
+    --primaryDColor:#2a1f62;
+    --white:#edf1f4;
+    --black :#000;
+    --grey:#414141;
+    --shadow1:hsla(0, 0%, 100%, 0.11);
+    --shadow2:#fffb;
+}
+body{
+  margin-bottom: 2rem;
+  position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--white);
+}
+
+.inside{
+    position:relative;
+    width: 420px;
+    padding: 80px 50px 50px;
+    box-shadow: 15px 15px 20px var(--shadow1),-15px -15px 20px var(--shadow2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+
+}
+.inside form{
+    position: relative;
+    width: 100%;
+     
+}
+.inside form h2{
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    line-height: 0.9em;
+}
+
+.checkbox-wrapper-53 input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper-53 .container {
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+.checkbox-wrapper-53 .checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-radius: 100%;
+  background: #e8e8e8;
+  box-shadow: 3px 3px 5px #c5c5c5,
+              -3px -3px 5px #ffffff;
+}
+
+.checkbox-wrapper-53 .container input:checked ~ .checkmark {
+  box-shadow: inset 3px 3px 5px #c5c5c5,
+              inset -3px -3px 5px #ffffff;
+}
+
+.checkbox-wrapper-53 .checkmark:after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox-wrapper-53 .container input:checked ~ .checkmark:after {
+  opacity: 1;
+}
+
+ .container .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid var(--primaryDColor);
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+  transition: all 250ms;
+}
+
+
+.inputBox input{
+    /* border:none;
+    outline: none; */
+    background-color: transparent;
+    border-radius: 10px;
+    font-size: 1em;
+    width: 100%;
+    padding:15px 20px;
+    padding-left:40px;
+    margin:15px auto;
+    box-shadow: 15px 15px 20px var(--shadow1),-15px -15px 20px var(--shadow2);
+    caret-color: var(--primaryLColor);
+}
+label{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 15% 1fr;
+}
+.inputBox{
+  position: relative;
+}
+input[type="checkbox"]{
+    margin-right:5px ;
+}
+
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit {
+  background-color: transparent;
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 15px 15px 20px var(--shadow1),-15px -15px 20px var(--shadow2);
+  box-sizing: border-box;
+  color: var(--primaryDColor);
+  cursor: pointer;
+  display: flex;
+  font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+  font-size: 1rem;
+  justify-content: center;
+  line-height: 1.5rem;
+  padding: 10px 15px;
+  position: relative;
+  text-align: left;
+  transition: .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: pre;
+  width: max-content;
+  word-break: normal;
+  word-spacing: normal;
+}
+
+.submit:hover {
+  background: rgb(147, 147, 178);
+  box-shadow: 15px 15px 20px var(--shadow1),-15px -15px 20px var(--shadow2);
+}
+.go{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+ a{
+  color: var(--primaryDColor);
+  font-style: italic;
+  text-decoration: none;
+}
+#eye,#cEye{
+  position: absolute;
+  cursor:pointer;
+  right: 5px;
+  bottom: 32px;
+  /* top: -10px; */
+  width: 20px;
+}
+#names{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+input:user-invalid{
+  border-color: red;
+}
+input:user-valid{
+  border-color: green;
+}
+
