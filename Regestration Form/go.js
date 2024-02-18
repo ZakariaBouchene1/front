@@ -33,9 +33,9 @@ let userHomePage ="main.html"
 function logIn() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    alert(username  + ":" + password);
+    
     // Send login data to backend
-    fetch('http://localhost:8080/api/login', {
+    fetch('http://localhost:8080/api/v1/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,15 +47,20 @@ function logIn() {
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Login failed');
+        refreshToken();
+        if(!response.ok){
+          throw new Error('Login failed');
+        }
+        
       }
       return response.json();
     })
     .then(data => {
       // Login successful, data may contain user profile information
       console.log('Login successful:', data);
-      setAccessToken(data.access_token);
-      window.location.href = userHomePage;
+      setAccessToken(data.accessToken);
+      setRefreshToken(data.refreshToken);
+      window.location.href = "main.html";
 
       // You can redirect to another page or update the UI as needed
     })
@@ -70,7 +75,7 @@ function logIn() {
 // Assuming 'validatedToken' is the result of token validation and 'userProfileURL' is the desired redirect URL.
 
 function refreshToken() {
-  fetch('http://your-spring-boot-api-endpoint/refresh', {
+  fetch('http://localhost:8080/api/v1/auth/refresh-token', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -79,7 +84,7 @@ function refreshToken() {
   })
   .then(response => response.json())
   .then(data => {
-      const newAccessToken = data.access_token;
+      const newAccessToken = data.accessToken;
       setAccessToken(newAccessToken);
   })
   .catch(error => {
@@ -90,16 +95,24 @@ function refreshToken() {
 function getRefreshToken() {
   return localStorage.getItem('refreshToken');
 }
+function getAccessToken() {
+  return localStorage.getItem('accessToken');
+}
 
 function setAccessToken(token) {
   localStorage.setItem('accessToken', token);
 }
+function setRefreshToken(token) {
+  localStorage.setItem('refreshToken', token);
+}
 
 // add fetch for name and username
 // Assuming you have an endpoint that returns user data in JSON format 
-const endpoint = 'http://your-spring-boot-api-endpoint-which-means-the-URL/user-data';
+const endpoint = 'http://localhost:8080/api/v1/user/all_users';
 
 async function fetchUserData() {
+  console.log(localStorage.getItem());
+
   try {
       const response = await fetch(endpoint);
       if (!response.ok) {
