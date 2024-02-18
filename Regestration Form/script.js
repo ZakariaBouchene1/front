@@ -1,7 +1,7 @@
 let navs=document.getElementById("navs");
 
 function refreshToken() {
-    fetch('http://your-spring-boot-api-endpoint/refresh', {
+    fetch('http://localhost:8080/api/v1/auth/refresh-token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ function refreshToken() {
     })
     .then(response => response.json())
     .then(data => {
-        const newAccessToken = data.access_token;
+        const newAccessToken = data.accessToken;
         setAccessToken(newAccessToken);
     })
     .catch(error => {
@@ -20,19 +20,28 @@ function refreshToken() {
 
 function getRefreshToken() {
     return localStorage.getItem('refreshToken');
-}
-
-function setAccessToken(token) {
+  }
+  function getAccessToken() {
+    return localStorage.getItem('accessToken');
+  }
+  
+  function setAccessToken(token) {
     localStorage.setItem('accessToken', token);
-}
+  }
+  
 
 // add fetch for name and username
 // Assuming you have an endpoint that returns user data in JSON format 
-const endpoint = 'http://your-spring-boot-api-endpoint-which-means-the-URL/user-data';
+//const endpoint = 'http://localhost:8080/api/v1/user/all_users';
 
 async function fetchUserData() {
     try {
-        const response = await fetch(endpoint);
+        const response = await fetch('http://localhost:8080/api/v1/profile/userDetails',{
+            method: 'get',
+            headers:  {
+                'Authorization' : 'Bearer '+getAccessToken(),
+            },
+        })
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -48,8 +57,8 @@ function displayUserData(userData) {
     const userDataContainer = document.getElementById('userData');
     
     userDataContainer.innerHTML = `
-        <h2>Username: ${userData.username}</h2>
-        <h3>Name: ${userData.name}</h3>
+        <h2>Name: ${userData.name}</h2>
+        <h3>Username: @${userData.username}</h3>
     `;
 }
 
