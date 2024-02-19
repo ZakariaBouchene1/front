@@ -60,7 +60,7 @@ function logIn() {
       console.log('Login successful:', data);
       setAccessToken(data.accessToken);
       setRefreshToken(data.refreshToken);
-      window.location.href = "main.html";
+      window.location.href = "mainAutho.html";
 
       // You can redirect to another page or update the UI as needed
     })

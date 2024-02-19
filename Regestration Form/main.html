@@ -2,159 +2,178 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/card.css">
-    <link rel="stylesheet" href="./css/darkLight.css">
-    <title>Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/darkLight.css">
+    <title>Quiz Home</title>
+    <style>
+      
+      body {
+            background-color: #e0e5ec;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
 
 
-  
+      .quiz-card {
+          width: 300px;
+          height: 200px;
+          background-color: #d4d9e2;
+          border-radius: 20px;
+          padding: 20px;
+          margin: 20px;
+          box-shadow: 10px 10px 30px #b9c4d2, -10px -10px 30px #ffffff;
+          transition: transform 0.3s ease-in-out;
+          cursor: pointer;
+      }
+      .quiz-info {
+          text-align: center;
+          color: #000;
+      }
+
+      h3, p {
+          margin: 0;
+      }
+        header, footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            height: 100vh;
+            width: 100vw;
+           
+        }
+
+        .quiz-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 60%;
+            position: relative;
+        }
+
+        .quiz-card {
+          position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: #d4d9e2;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 10px 10px 30px #b9c4d2, -10px -10px 30px #ffffff;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .quiz-card:hover {
+            transform: scale(1.05);
+            z-index: 4;
+        }
+
+        .quiz-info {
+            text-align: center;
+        }
+        .c1{
+          right: 0;
+          top: 0;
+          transform: rotate(20deg);
+        }
+        .c2 {
+          left: 50%;
+          transform: translate(-50%,0%);
+          top: 0;
+          
+        }
+        .c2:hover{
+          left: 50%;
+          transform: translate(-50%,0%) ;
+          top: 0;
+        }
+      
+        .c3{
+          
+          transform: rotate(-20deg);
+        }
+        h3, p {
+            margin: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="./main.html" id="logo"><i> QUIZ</i></a>
-      <div class="wrapper">
-        <ul id="navs">
-          <div class=" go"> <li ><i ><a href="./logIn.html">IN</a></i></li></div>
-          <div class=" go"> <li ><i ><a href="./signUp.html">UP</a></i></li></div>                
-        </ul>
-      </div>
-    <!-- switch mood -->
-        <div class="container">
-            <div id="checkbox" class="checkbox-wrapper">
-                <label class="switch">
-                <input type="checkbox" id="them"/>
-                <span class="slider"></span>
-                </label>
+    <header>
+        <h1>Quiz App</h1>
+        <nav>
+          <a href="./main.html" id="logo"><i> QUIZ</i></a>
+          <div class="wrapper">
+            <ul id="navs">
+              <div class=" go"> <li ><i ><a href="./logIn.html">IN</a></i></li></div>
+              <div class=" go"> <li ><i ><a href="./signUp.html">UP</a></i></li></div>                
+              <div class=" go"> <li ><i ><a href="./main.html" onclick="logOut()">Out</a></i></li></div>                
+            </ul>
+          </div>
+        <!-- switch mood -->
+            <div class="container">
+                <div id="checkbox" class="checkbox-wrapper">
+                    <label class="switch">
+                    <input type="checkbox" id="them"/>
+                    <span class="slider"></span>
+                    </label>
+                </div>
             </div>
+        </nav>
+    </header>
+<a href="logIn.html">
+    <main >
+        <div class="quiz-container">
+            <div class="quiz-card c1">
+                <div class="quiz-info">
+                    <h3>Quiz Name</h3>
+                    <p>Category: General Knowledge</p>
+                    <p>Number of Questions: 10</p>
+                    <p>Difficulty: Medium</p>
+                </div>
+            </div>
+
+          
+            <div class="quiz-card c3" style="transform: rotate('20deg');">
+                <div class="quiz-info">
+                    <h3>Fun Quiz</h3>
+                    <p>Category: Entertainment</p>
+                    <p>Number of Questions: 8</p>
+                    <p>Difficulty: Easy</p>
+                </div>
+            </div>
+            <div class="quiz-card c2">
+              <div class="quiz-info">
+                  <h3>Another Quiz</h3>
+                  <p>Category: Science</p>
+                  <p>Number of Questions: 15</p>
+                  <p>Difficulty: Hard</p>
+              </div>
+          </div>
+
         </div>
-    </nav>
-  </header>
-    <section>
-      <div id="userData">
-        <h2>@Zakaria_Bouchene</h2>
-        <h3>Abdou Lebgaa</h3>
-      </div>
-<!-- Quiz Card -->
-<!-- <div class="wrapper">
-  
-  <div class="icon arrow"><-</div>
-  <div class="icon dots"><i >...</i></div>
-  <div class="category">Category</div>
-  <div class="question">the Question will be here</div>
-  <ul class="options">
-    <div class="option"> <li ><i >I <input class="opt" type="checkbox" name="1" id="opt1"></i></li><label for="opt1">answer 1</label></div>
-    <div class="option"> <li ><i >II <input class="opt" type="checkbox" name="2" id="opt2"></i></li><label for="opt2">answer 2</label></div>
-    <div class="option"> <li ><i >III <input class="opt" type="checkbox" name="3" id="opt3"></i></li><label for="opt3">answer 3</label></div>
-    <div class="option"> <li ><i >VI <input class="opt" type="checkbox" name="4" id="opt4"></i></li><label for="opt4">answer 1</label></div>
-  </ul>
-  <div class="buttons">
-    <button>Submit</button>
-    <button>Save</button>
-  </div>
-  <div class="social-share">
-    <div class="row">
-      <i></i>
-      <span>20.4k</span>
-    </div>
-    <div class="row">
-       <span>14.3k</span>
-    </div>
-    <div class="row">
-      <span>12.8k</span>
-    </div>
-  </div>
-</div>
-end Quiz Card -->
-<!-- other Cards
-<div class="wrapper">
-  
-  <div class="icon arrow"><-</div>
-  <div class="icon dots"><i >...</i></div>
-  <div class="category">Category</div>
-  <div class="question">the Question will be here</div>
-  <ul class="options">
-    <div class="option"> <li ><i >I <input class="opt" type="checkbox" name="1" id="opt1"></i></li><label for="opt1">answer 1</label></div>
-    <div class="option"> <li ><i >II <input class="opt" type="checkbox" name="2" id="opt2"></i></li><label for="opt2">answer 2</label></div>
-    <div class="option"> <li ><i >III <input class="opt" type="checkbox" name="3" id="opt3"></i></li><label for="opt3">answer 3</label></div>
-    <div class="option"> <li ><i >VI <input class="opt" type="checkbox" name="4" id="opt4"></i></li><label for="opt4">answer 1</label></div>
-  </ul>
-  <div class="buttons">
-    <button>Submit</button>
-    <button>Save</button>
-  </div>
-  <div class="social-share">
-    <div class="row">
-      <i></i>
-      <span>20.4k</span>
-    </div>
-    <div class="row">
-       <span>14.3k</span>
-    </div>
-    <div class="row">
-      <span>12.8k</span>
-    </div>
-  </div>
-</div>
-
-<div class="wrapper">
-  
-  <div class="icon arrow"><-</div>
-  <div class="icon dots"><i >...</i></div>
-  <div class="category">Category</div>
-  <div class="question">the Question will be here</div>
-  <ul class="options">
-    <div class="option"> <li ><i >I <input class="opt" type="checkbox" name="1" id="opt1"></i></li><label for="opt1">answer 1</label></div>
-    <div class="option"> <li ><i >II <input class="opt" type="checkbox" name="2" id="opt2"></i></li><label for="opt2">answer 2</label></div>
-    <div class="option"> <li ><i >III <input class="opt" type="checkbox" name="3" id="opt3"></i></li><label for="opt3">answer 3</label></div>
-    <div class="option"> <li ><i >VI <input class="opt" type="checkbox" name="4" id="opt4"></i></li><label for="opt4">answer 1</label></div>
-  </ul>
-  <div class="buttons">
-    <button>Submit</button>
-    <button>Save</button>
-  </div>
-  <div class="social-share">
-    <div class="row">
-      <i></i>
-      <span>20.4k</span>
-    </div>
-    <div class="row">
-       <span>14.3k</span>
-    </div>
-    <div class="row">
-      <span>12.8k</span>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- end Other Cards -->
-    <!-- <div class="quiz-container">
-        <h2>Quiz Categories</h2>
-
-        <div class="category-card">
-          <h3>Category 1</h3>
-          <p>Description for Category 1.</p>
-        </div>
-
-        <div class="category-card">
-          <h3>Category 2</h3>
-          <p>Description for Category 2.</p>
-        </div>
-
-        <div class="category-card">
-          <h3>Category 3</h3>
-          <p>Description for Category 3.</p>
-        </div> -->
-
-      <!-- Adding more category cards as needed -->
-
-      </div>
-    </section>
-  <footer></footer>
+    </main>
+  </a>
+    <footer>
+        <p>&copy; 2024 Quiz App. All rights reserved.</p>
+    </footer>
 <script src="./script.js"></script>
 </body>
 </html>
+
