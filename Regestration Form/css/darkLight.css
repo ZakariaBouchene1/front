@@ -1,4 +1,9 @@
 :root{
+  --boxShadowInset:inset 2px 2px 5px rgba(0,0,0,0.5),
+  inset -3px -3px 7px  rgba(0,0,0,0.05);
+  --boxShadow: 2px 2px 5px rgba(0,0,0,0.5),
+                         -3px -3px 7px  rgba(0,0,0,0.05);
+
   --shadow2:#fffb;
   --shadow1:hsla(0, 0%, 100%, 0.11);
 }
@@ -42,7 +47,7 @@
     left: 0; 
     right: 0;
     bottom: 0; 
-    box-shadow: 15px 15px 20px var(--shadow1),-15px -15px 20px var(--shadow2);
+    box-shadow: var(--boxShadow);
     background-color:#e4c8b8 ;
     transition: .4s;
     border-radius: 30px;

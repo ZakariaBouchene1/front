@@ -1,18 +1,21 @@
 const showPassword= document.getElementById("eye");
-const showcPassword= document.getElementById("cEye");
 const password= document.getElementById("password");
-const cpassword= document.getElementById("cpassword");
-showPassword.addEventListener("click",()=>{
 
-    const type = password.type
-    if(type=="password"){
-        showPassword.setAttribute("src","./assets/eye.svg");
-        password.type="text";
-    }else{
-        showPassword.setAttribute("src","./assets/eyeSlash.svg");
-        password.type="password";
-    }
+showPassword.addEventListener("click",()=>{
+  
+  const type = password.type
+  if(type=="password"){
+    showPassword.setAttribute("src","./assets/eye.svg");
+    password.type="text";
+  }else{
+    showPassword.setAttribute("src","./assets/eyeSlash.svg");
+    password.type="password";
+  }
 });
+try {
+ 
+const showcPassword= document.getElementById("cEye");
+const cpassword= document.getElementById("cpassword");
 showcPassword.addEventListener("click",()=>{
 
 
@@ -24,7 +27,10 @@ showcPassword.addEventListener("click",()=>{
         cpassword.type="password";
         showcPassword.setAttribute("src","./assets/eyeSlash.svg");
     }
-});
+}) 
+} catch (error) {
+  console.log(error);
+}
 
 // the end of the input styling 
 let userHomePage ="main.html"
@@ -125,3 +131,9 @@ async function fetchUserData() {
       console.error('Error fetching user data:', error);
   }
 }
+
+// ask is reload is intended
+window.addEventListener("beforeunload",(e)=>{
+  e.preventDefault()
+})
+// 

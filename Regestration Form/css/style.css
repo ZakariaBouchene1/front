@@ -53,3 +53,13 @@ nav{
     color: aqua;
     background-color: black;
 }
+.createQuiz{
+    height:3rem ;
+    font-size: large;
+
+}
+.createQuiz a{
+    font-style: italic;
+    text-decoration: none;
+    color: red;
+}
