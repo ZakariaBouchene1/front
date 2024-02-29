@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="./../css/go.css">
+    <link rel="stylesheet" href="./../css/darkLight.css">
+    <style>
+        :root{
+  --boxShadowInset:inset 2px 2px 5px rgba(0,0,0,0.5),
+  inset -3px -3px 7px  rgba(0,0,0,0.05);
+  --boxShadow: 2px 2px 5px rgba(0,0,0,0.5),
+                         -3px -3px 7px  rgba(0,0,0,0.05);
+    --white:#c8c8c8;
+    --black :#131419;
+}
+.logo{
+    border-radius: 50%;
+    border-color: var(--black);
+    z-index: 4;
+}
+    </style>
+</head>
+<body>
+    <div id="checkbox" class="checkbox-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="them"/>
+          <span class="slider"></span>
+        </label>
+      </div>
+        <div class="inside">
+            <form >
+                <!-- todo after -->
+            <div class="logo"><h1><a href="main.html">QUIZ </a></h1></div>
+            
+            <div class="inputBox"><label for="email"><i> Email </i></label><input type="email" id="email" placeholder="Example@address.com" required><br>
+            <div id="names">
+                <div class="inputBox name"><label for="name"><i> Name  </i></label><input type="text" id="name" placeholder="User Name" required></div>
+                <div class="inputBox name"><label for="usename"><i> Username  </i></label><input type="text" id="username" placeholder="@Username" required></div>
+            </div><br>
+                <div class="inputBox"><label for="password"></label><i>Password </i><input id="password" type="password" placeholder="********"  required minlength="8" title="At least 8 characters"><img id="eye" src="./../assets/eyeSlash.svg" alt="show" ><br></div>
+            <div class="inputBox"><label for="cpassword"></label><i>Confirm the password </i><input id="cpassword" type="password" placeholder="********"  required minlength="8" title="confirme your password "> <img id="cEye" src="./../assets/eyeSlash.svg" alt="show" ><br></div>         
+                <br>
+                <div class="btn">
+                    <button class="submit" role="button" type="submit" onclick="go()">Sign up</button>
+                </div>
+            </form>
+        </div>
+    <div class="go"><i><a href="./logIn.html"> Connect to your account </a></i></div>
+</body>
+<script type="module" src="./../js/go.js"></script>
+<script type="module" src="./../js/darkLight.js"></script>
+</html>

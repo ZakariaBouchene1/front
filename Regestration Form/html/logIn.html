@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="./../css/goD.css">
+    <link rel="stylesheet" href="./../css/darkLight.css">
+</head>
+<body>
+    <div id="checkbox" class="checkbox-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="them"/>
+          <span class="slider"></span>
+        </label>
+      </div>
+        <div class="inside">
+            <form >
+            <h1><a href="main.html">QUIZ </a></h1>
+            <h2><i> HELLO! </i></h2>
+        
+            <div class="inputBox"><i>Username / Email </i><input id="username" type="email" placeholder="@Username" required><br>
+            <div class="inputBox"><i> Password </i><input id="password" type="password" placeholder="********" required><img id="eye" src="./../assets/eyeSlash.svg" alt="show" ><br></div>
+            <div class="forgot"><a href="passForgot.html"><i> I Forgot My Password ? </i></a></div>
+                <br>
+                <div class="btn">
+                    <button class="submit" role="button" type="submit"  onclick="go()" ><i> Log in</i></button>
+                </div>
+            </form>
+        </div>
+    <div class="go"><i><a href="./signUp.html"> Creat a new Account </a></i></div>
+<script type="module" src="./../js/go.js"></script>
+<script type="module" src="./../js/darkLight.js"></script>
+</body>
+</html>
